@@ -8,18 +8,48 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController {
-
+class MoviesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    @IBOutlet weak var moviesTableView: UITableView!
+    
+    let movies = Movies.movies
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("MoviesViewController did load.")
+        moviesTableView.delegate = self
+        moviesTableView.dataSource = self
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func downloadImage(fromURL url: String) -> UIImage? {
+        if let imageURL = URL(string: url),
+            let imageData = NSData(contentsOf: imageURL)  {
+            let data = imageData as Data
+            let image = UIImage(data: data)
+            return image
+        }
+        return nil
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Movie Cell", for: indexPath) as! MovieTableViewCell
+        if let url = movies[indexPath.row].imageURL {
+            cell.movieImage.image = downloadImage(fromURL: url)
+        }
+        cell.tintColor = .red
+        cell.movieTitle.text = movies[indexPath.row].title
+        cell.movieCast.text = movies[indexPath.row].cast
+        cell.movieGenre.text = movies[indexPath.row].genre
+        cell.movieNumber.text = "\(indexPath.row+1)"
+        return cell
+    }
+    
     
     
     
