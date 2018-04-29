@@ -18,6 +18,7 @@
 		2EE798352093A794006EC1B2 /* RecentMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE798332093A794006EC1B2 /* RecentMoviesCollectionViewCell.xib */; };
 		2EE798382093A7AC006EC1B2 /* AllMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE798362093A7AC006EC1B2 /* AllMoviesCollectionViewCell.swift */; };
 		2EE798392093A7AC006EC1B2 /* AllMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE798372093A7AC006EC1B2 /* AllMoviesCollectionViewCell.xib */; };
+		2EE7983B20951612006EC1B2 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7983A20951612006EC1B2 /* MoviesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		2EE798332093A794006EC1B2 /* RecentMoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentMoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		2EE798362093A7AC006EC1B2 /* AllMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		2EE798372093A7AC006EC1B2 /* AllMoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllMoviesCollectionViewCell.xib; sourceTree = "<group>"; };
+		2EE7983A20951612006EC1B2 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				2E56B5CD20937E97005D95B7 /* ViewController.swift */,
+				2EE7983A20951612006EC1B2 /* MoviesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				2E56B5E52093A595005D95B7 /* Movie.swift in Sources */,
 				2EE798342093A794006EC1B2 /* RecentMoviesCollectionViewCell.swift in Sources */,
 				2E56B5CC20937E97005D95B7 /* AppDelegate.swift in Sources */,
+				2EE7983B20951612006EC1B2 /* MoviesViewController.swift in Sources */,
 				2EE798382093A7AC006EC1B2 /* AllMoviesCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
