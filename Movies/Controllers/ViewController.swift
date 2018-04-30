@@ -10,19 +10,16 @@ import UIKit
 import CoreData
 
 
+
 class ViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource ,UIScrollViewDelegate,UICollectionViewDelegateFlowLayout{
-    
-    @IBOutlet weak var latestMoviesCollectionView: UICollectionView!
-    
-    
-    @IBOutlet weak var allMoviesView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var allMoviesCollectionView: UICollectionView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("EntryViewController did load.")
+        let memoryCapacity = 500 * 1024 * 1024
+        let diskCapacity = 500 * 1024 * 1024
+        let urlCache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "myDiskPath")
+        URLCache.shared = urlCache
+        
         latestMoviesCollectionView.register(UINib.init(nibName: "RecentMoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: latestMoviesCollectionViewIdentifier)
         allMoviesCollectionView.register(UINib.init(nibName: "AllMoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: allMoviesCollectionViewIdentifier)
         
@@ -36,6 +33,11 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
         pagesSegmentedControl.addTarget(self, action: #selector(switchPages), for: .valueChanged)
     }
     
+    @IBOutlet weak var latestMoviesCollectionView: UICollectionView!
+    @IBOutlet weak var allMoviesView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var allMoviesCollectionView: UICollectionView!
+    
     var currentViewController : UIViewController?
     lazy var firstViewController : UIViewController? = {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EntryViewController")
@@ -45,6 +47,9 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "MoviesViewController")
         return vc
     }()
+    
+    
+
     
     @objc func switchPages() {
         self.currentViewController?.view.removeFromSuperview()
@@ -125,33 +130,20 @@ class ViewController: UIViewController,UICollectionViewDelegate, UICollectionVie
         
     }
     
-    func downloadImage(fromURL url: String) -> UIImage? {
-        if let imageURL = URL(string: url),
-            let imageData = NSData(contentsOf: imageURL)  {
-            let data = imageData as Data
-            let image = UIImage(data: data)
-            return image
-        }
-        return nil
-    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let movie = Movies.movies[indexPath.row]
         if collectionView == latestMoviesCollectionView {
             let cellForLatestMovies = collectionView.dequeueReusableCell(withReuseIdentifier: latestMoviesCollectionViewIdentifier, for: indexPath) as! RecentMoviesCollectionViewCell
-            if let url = movie.imageURL {
-                cellForLatestMovies.movieImage.image = self.downloadImage(fromURL: url)
-            }
+            cellForLatestMovies.movie = movie
             return cellForLatestMovies
 
         }
     
         let cellForAllMovies = collectionView.dequeueReusableCell(withReuseIdentifier: allMoviesCollectionViewIdentifier, for: indexPath) as! AllMoviesCollectionViewCell
         
-        if let url = movie.imageURL,let title = movie.title {
-            cellForAllMovies.movieImageView.image = self.downloadImage(fromURL: url)
-            cellForAllMovies.movieTitle.text = title
-        }
+        cellForAllMovies.movie = movie
         
         return cellForAllMovies
         

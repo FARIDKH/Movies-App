@@ -20,6 +20,7 @@
 		2EE798392093A7AC006EC1B2 /* AllMoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EE798372093A7AC006EC1B2 /* AllMoviesCollectionViewCell.xib */; };
 		2EE7983B20951612006EC1B2 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7983A20951612006EC1B2 /* MoviesViewController.swift */; };
 		2EE7983F2095F642006EC1B2 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7983E2095F642006EC1B2 /* MovieTableViewCell.swift */; };
+		2EE7984120973BCB006EC1B2 /* StaticDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE7984020973BCB006EC1B2 /* StaticDownload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		2EE798372093A7AC006EC1B2 /* AllMoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllMoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		2EE7983A20951612006EC1B2 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		2EE7983E2095F642006EC1B2 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		2EE7984020973BCB006EC1B2 /* StaticDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticDownload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				2E56B5CD20937E97005D95B7 /* ViewController.swift */,
+				2EE7984020973BCB006EC1B2 /* StaticDownload.swift */,
 				2EE7983A20951612006EC1B2 /* MoviesViewController.swift */,
 			);
 			path = Controllers;
@@ -194,6 +197,7 @@
 				2EE7983B20951612006EC1B2 /* MoviesViewController.swift in Sources */,
 				2EE7983F2095F642006EC1B2 /* MovieTableViewCell.swift in Sources */,
 				2EE798382093A7AC006EC1B2 /* AllMoviesCollectionViewCell.swift in Sources */,
+				2EE7984120973BCB006EC1B2 /* StaticDownload.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
